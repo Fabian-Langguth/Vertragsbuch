@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vertragsbuch.App"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Vertragsbuch" Height="500" Width="800">
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock  FontSize="20" FontWeight="Heavy" Text="Meine Verträge" Grid.Row="0" Margin="10"/>
+        <ListBox x:Name="VertragsListBox" Grid.Row="1"  Margin="10">
+            <ListBoxItem Content="Handyvertrag"/>
+            <ListBoxItem Content="Stromvertrag"/>
+        </ListBox>
     </Grid>
 </Window>
