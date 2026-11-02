@@ -20,5 +20,23 @@ namespace Vertragsbuch.App
         {
             InitializeComponent();
         }
+
+        private void HinzufuegenButton_Click(object sender, RoutedEventArgs e)
+        {
+            var vertragsName = VertragsNameTextBox.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(vertragsName))
+            {
+                MessageBox.Show("Das Feld darf nicht leer sein.");
+            }
+            else
+            {
+                VertragsListBox.Items.Add(vertragsName);
+                VertragsNameTextBox.Clear();
+            }
+            VertragsNameTextBox.Focus();
+
+
+        }
     }
 }

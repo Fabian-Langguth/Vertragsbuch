@@ -10,11 +10,16 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <TextBlock  FontSize="20" FontWeight="Heavy" Text="Meine Verträge" Grid.Row="0" Margin="10"/>
-        <ListBox x:Name="VertragsListBox" Grid.Row="1"  Margin="10">
-            <ListBoxItem Content="Handyvertrag"/>
-            <ListBoxItem Content="Stromvertrag"/>
-        </ListBox>
+        <ListBox x:Name="VertragsListBox" Grid.Row="1"  Margin="10"/>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10">
+            <TextBox x:Name="VertragsNameTextBox" Width="400"/>
+            <Button x:Name="HinzufuegenButton" Content="Hinzufügen" Click="HinzufuegenButton_Click" Margin="10,0,0,0"/>
+
+        </StackPanel>
+
+
     </Grid>
 </Window>
