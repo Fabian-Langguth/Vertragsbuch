@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Runtime.ConstrainedExecution;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -44,12 +45,22 @@ namespace Vertragsbuch.App
             string? ausgewaehlterVertrag = VertragsListBox.SelectedItem as string; // Gibt dem Ausgwählten Text als String zurück oder null
             if (ausgewaehlterVertrag != null)
             {
-                VertragsListBox.Items.Remove(ausgewaehlterVertrag); // löscht den Ausgewählten Text aus der Box
+                MessageBoxResult antwort =
+                MessageBox.Show($"Möchten sie {ausgewaehlterVertrag} wirklich löschen?",
+                    "Vertrag Entfernen?",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question);
+
+                if (antwort == MessageBoxResult.Yes)
+                {
+                    VertragsListBox.Items.Remove(ausgewaehlterVertrag); // löscht den Ausgewählten Text aus der Box
+
+                }
 
             }
             else
             {
-                MessageBox.Show("Bitte wählen sie zuerst ein Vertrag aus");
+                MessageBox.Show("Bitte wählen Sie zuerst einen Vertrag aus.");
             }
         }
     }
