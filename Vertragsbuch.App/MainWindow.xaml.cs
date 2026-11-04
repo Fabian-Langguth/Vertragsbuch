@@ -23,7 +23,7 @@ namespace Vertragsbuch.App
 
         private void HinzufuegenButton_Click(object sender, RoutedEventArgs e)
         {
-            var vertragsName = VertragsNameTextBox.Text.Trim();
+            var vertragsName = VertragsNameTextBox.Text.Trim(); // Enfernt Leerzeichen 
 
             if (string.IsNullOrWhiteSpace(vertragsName))
             {
@@ -37,6 +37,20 @@ namespace Vertragsbuch.App
             VertragsNameTextBox.Focus();
 
 
+        }
+
+        private void EntfernenButton_Click(object sender, RoutedEventArgs e)
+        {
+            string? ausgewaehlterVertrag = VertragsListBox.SelectedItem as string; // Gibt dem Ausgwählten Text als String zurück oder null
+            if (ausgewaehlterVertrag != null)
+            {
+                VertragsListBox.Items.Remove(ausgewaehlterVertrag); // löscht den Ausgewählten Text aus der Box
+
+            }
+            else
+            {
+                MessageBox.Show("Bitte wählen sie zuerst ein Vertrag aus");
+            }
         }
     }
 }
