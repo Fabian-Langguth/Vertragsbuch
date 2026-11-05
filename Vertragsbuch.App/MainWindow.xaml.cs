@@ -58,6 +58,14 @@ namespace Vertragsbuch.App
             int anzahlVertraege = VertragsListBox.Items.Count;
             AnzahlTextBlock.Text = $"Anzahl: {anzahlVertraege}";
 
+            if (anzahlVertraege == 0 || anzahlVertraege > 1)
+            {
+                AnzahlTextBlock.Text = $"{anzahlVertraege} Verträge";
+            }
+            else
+            {
+                AnzahlTextBlock.Text = $"{anzahlVertraege} Vertrag";
+            }
         }
     }
 }
