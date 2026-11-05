@@ -1,14 +1,4 @@
-﻿using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace Vertragsbuch.App
 {
@@ -20,6 +10,7 @@ namespace Vertragsbuch.App
         public MainWindow()
         {
             InitializeComponent();
+            AnzahlAktualisieren();
         }
 
         private void HinzufuegenButton_Click(object sender, RoutedEventArgs e)
@@ -34,9 +25,9 @@ namespace Vertragsbuch.App
             {
                 VertragsListBox.Items.Add(vertragsName);
                 VertragsNameTextBox.Clear();
+                AnzahlAktualisieren();
             }
             VertragsNameTextBox.Focus();
-
 
         }
 
@@ -50,18 +41,23 @@ namespace Vertragsbuch.App
                     "Vertrag Entfernen?",
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Question);
-
                 if (antwort == MessageBoxResult.Yes)
                 {
                     VertragsListBox.Items.Remove(ausgewaehlterVertrag); // löscht den Ausgewählten Text aus der Box
-
+                    AnzahlAktualisieren();
                 }
-
             }
             else
             {
                 MessageBox.Show("Bitte wählen Sie zuerst einen Vertrag aus.");
             }
+        }
+
+        private void AnzahlAktualisieren()
+        {
+            int anzahlVertraege = VertragsListBox.Items.Count;
+            AnzahlTextBlock.Text = $"Anzahl: {anzahlVertraege}";
+
         }
     }
 }
