@@ -19,7 +19,7 @@ namespace Vertragsbuch.App
             bool istVorhanden = false;
             foreach (string eintrag in VertragsListBox.Items) // Durchläuft die Listbox,sucht nach vorhanden Verträgen
             {
-                if (eintrag == vertragsName)
+                if (string.Equals(eintrag, vertragsName, StringComparison.OrdinalIgnoreCase))
                 {
                     istVorhanden = true;
                     break;
