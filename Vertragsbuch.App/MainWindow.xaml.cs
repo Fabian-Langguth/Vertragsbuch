@@ -15,17 +15,16 @@ namespace Vertragsbuch.App
 
         private void HinzufuegenButton_Click(object sender, RoutedEventArgs e)
         {
-            var vertragsName = VertragsNameTextBox.Text.Trim(); // Enfernt Leerzeichen 
-            bool istVorhanden = IstVertragVorhanden(vertragsName);
+            var vertragsName = VertragsNameTextBox.Text.Trim(); // Entfernt Leerzeichen 
+            
 
             if (string.IsNullOrWhiteSpace(vertragsName)) // Prüft ob Eingabe leer ist
             {
                 MessageBox.Show("Das Feld darf nicht leer sein.");
             }
-            else if(istVorhanden) // Prüft ob Vertrag schon existiert
+            else if (IstVertragVorhanden(vertragsName)) // Prüft ob Vertrag schon existiert
             {
                 MessageBox.Show("Der Vertrag ist schon vorhanden.");
-                
             }
             else // Fügt Vertrag hinzu
             {
@@ -55,7 +54,7 @@ namespace Vertragsbuch.App
             if (ausgewaehlterVertrag != null)
             {
                 MessageBoxResult antwort =
-                MessageBox.Show($"Möchten sie {ausgewaehlterVertrag} wirklich löschen?",
+                MessageBox.Show($"Möchten Sie {ausgewaehlterVertrag} wirklich löschen?",
                     "Vertrag Entfernen?",
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Question);
