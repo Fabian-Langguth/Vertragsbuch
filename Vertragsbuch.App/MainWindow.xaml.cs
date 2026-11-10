@@ -19,7 +19,7 @@ namespace Vertragsbuch.App
             bool istVorhanden = false;
             foreach (string eintrag in VertragsListBox.Items) // Durchläuft die Listbox,sucht nach vorhanden Verträgen
             {
-                if (string.Equals(eintrag, vertragsName, StringComparison.OrdinalIgnoreCase))
+                if (string.Equals(eintrag, vertragsName, StringComparison.OrdinalIgnoreCase)) // prüft auf Groß und Kleinschreibung
                 {
                     istVorhanden = true;
                     break;
@@ -70,16 +70,24 @@ namespace Vertragsbuch.App
         private void AnzahlAktualisieren()
         {
             int anzahlVertraege = VertragsListBox.Items.Count;
-            AnzahlTextBlock.Text = $"Anzahl: {anzahlVertraege}";
+            string text = AnzahlTextErstellen(anzahlVertraege);
+            AnzahlTextBlock.Text = text;
+        }
 
-            if (anzahlVertraege == 0 || anzahlVertraege > 1)
+        private string AnzahlTextErstellen(int anzahl)
+        {
+
+            
+
+            if (anzahl == 1)
             {
-                AnzahlTextBlock.Text = $"{anzahlVertraege} Verträge";
+                return $"{anzahl} Vertrag";
             }
             else
             {
-                AnzahlTextBlock.Text = $"{anzahlVertraege} Vertrag";
+                return $"{anzahl} Verträge";
             }
+            
         }
     }
 }
