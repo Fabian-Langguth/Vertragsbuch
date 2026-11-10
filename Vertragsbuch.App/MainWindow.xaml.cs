@@ -16,15 +16,7 @@ namespace Vertragsbuch.App
         private void HinzufuegenButton_Click(object sender, RoutedEventArgs e)
         {
             var vertragsName = VertragsNameTextBox.Text.Trim(); // Enfernt Leerzeichen 
-            bool istVorhanden = false;
-            foreach (string eintrag in VertragsListBox.Items) // Durchläuft die Listbox,sucht nach vorhanden Verträgen
-            {
-                if (string.Equals(eintrag, vertragsName, StringComparison.OrdinalIgnoreCase)) // prüft auf Groß und Kleinschreibung
-                {
-                    istVorhanden = true;
-                    break;
-                }
-            }
+            bool istVorhanden = IstVertragVorhanden(vertragsName);
 
             if (string.IsNullOrWhiteSpace(vertragsName)) // Prüft ob Eingabe leer ist
             {
@@ -43,6 +35,18 @@ namespace Vertragsbuch.App
             }
             VertragsNameTextBox.Focus();
 
+        }
+
+        private bool IstVertragVorhanden(string vertragsName)
+        {
+            foreach (string eintrag in VertragsListBox.Items) // Durchläuft die Listbox,sucht nach vorhanden Verträgen
+            {
+                if (string.Equals(eintrag, vertragsName, StringComparison.OrdinalIgnoreCase)) // ignoriert groß und kleinschreibung
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private void EntfernenButton_Click(object sender, RoutedEventArgs e)
