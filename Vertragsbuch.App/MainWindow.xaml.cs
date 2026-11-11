@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Vertragsbuch.App.Models;
 
 namespace Vertragsbuch.App
 {
@@ -16,8 +17,6 @@ namespace Vertragsbuch.App
         private void HinzufuegenButton_Click(object sender, RoutedEventArgs e)
         {
             var vertragsName = VertragsNameTextBox.Text.Trim(); // Entfernt Leerzeichen 
-            
-
             if (string.IsNullOrWhiteSpace(vertragsName)) // Prüft ob Eingabe leer ist
             {
                 MessageBox.Show("Das Feld darf nicht leer sein.");
@@ -28,19 +27,20 @@ namespace Vertragsbuch.App
             }
             else // Fügt Vertrag hinzu
             {
-                VertragsListBox.Items.Add(vertragsName);
+                Vertrag vertrag = new Vertrag();
+                vertrag.Name = vertragsName;
+                VertragsListBox.Items.Add(vertrag);
                 VertragsNameTextBox.Clear();
                 AnzahlAktualisieren();
             }
             VertragsNameTextBox.Focus();
-
         }
 
         private bool IstVertragVorhanden(string vertragsName)
         {
-            foreach (string eintrag in VertragsListBox.Items) // Durchläuft die Listbox,sucht nach vorhanden Verträgen
+            foreach (Vertrag eintrag in VertragsListBox.Items) // Durchläuft die Listbox,sucht nach vorhanden Verträgen
             {
-                if (string.Equals(eintrag, vertragsName, StringComparison.OrdinalIgnoreCase)) // ignoriert groß und kleinschreibung
+                if (string.Equals(eintrag.Name, vertragsName, StringComparison.OrdinalIgnoreCase)) // ignoriert groß und kleinschreibung
                 {
                     return true;
                 }
@@ -50,17 +50,17 @@ namespace Vertragsbuch.App
 
         private void EntfernenButton_Click(object sender, RoutedEventArgs e)
         {
-            string? ausgewaehlterVertrag = VertragsListBox.SelectedItem as string; // Gibt dem Ausgwählten Text als String zurück oder null
+            Vertrag? ausgewaehlterVertrag = VertragsListBox.SelectedItem as Vertrag; // Gibt den ausgewählten Vertrag zurück oder null
             if (ausgewaehlterVertrag != null)
             {
                 MessageBoxResult antwort =
-                MessageBox.Show($"Möchten Sie {ausgewaehlterVertrag} wirklich löschen?",
+                MessageBox.Show($"Möchten Sie {ausgewaehlterVertrag.Name} wirklich löschen?",
                     "Vertrag Entfernen?",
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Question);
                 if (antwort == MessageBoxResult.Yes)
                 {
-                    VertragsListBox.Items.Remove(ausgewaehlterVertrag); // löscht den Ausgewählten Text aus der Box
+                    VertragsListBox.Items.Remove(ausgewaehlterVertrag); // löscht den ausgewählten Vertrag aus der Box
                     AnzahlAktualisieren();
                 }
             }
@@ -79,9 +79,6 @@ namespace Vertragsbuch.App
 
         private string AnzahlTextErstellen(int anzahl)
         {
-
-            
-
             if (anzahl == 1)
             {
                 return $"{anzahl} Vertrag";
@@ -90,7 +87,6 @@ namespace Vertragsbuch.App
             {
                 return $"{anzahl} Verträge";
             }
-            
         }
     }
 }
