@@ -1,3 +1,6 @@
 <Solution>
+  <Folder Name="/Projektmappenelemente/">
+    <File Path="README.md" />
+  </Folder>
   <Project Path="Vertragsbuch.App/Vertragsbuch.App.csproj" />
 </Solution>
