@@ -1,5 +1,5 @@
 # Vertragsbuch
-## Die App soll zukünftig über laufende Verträge,monatliche Kosten und Kündigungsfristen eine Übersicht bieten.
+## Die App soll zukünftig über laufende Verträge, monatliche Kosten und Kündigungsfristen eine Übersicht bieten.
 ## Status: Dieses Projekt dient als Lernprojekt zur festigung und Vertiefung von Fähigkeiten.
 ## Atkuelle Funktionen: 
 - Hinzufügen von Verträgen in eine Liste.
