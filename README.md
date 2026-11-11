@@ -1,31 +1,37 @@
 # Vertragsbuch
-## Projekt in Entwicklung
-- Dieses Projekt dient als Lernprojekt zur festigung und Vertiefung von Fähigkeiten.
-- Die App soll zukünftig über laufende Verträge, monatliche Kosten und Kündigungsfristen eine Übersicht bieten.
 
-## Atkuelle Funktionen 
-- Hinzufügen von Verträgen in eine Liste.
-- Entfernen von Verträgen aus der Liste.
-- Prüfung auf doppelte Einträge, Case Groß und Kleinschreibung bedacht.
-- Anzahl der Verträge Anzeigen. Einzahl und Mehrzahl
+Die App soll zukünftig eine Übersicht über laufende Verträge, monatliche Kosten und Kündigungsfristen bieten.
 
-## Technolgien 
-- C#.
-- WPF(XAML).
-- .NET10.
-- Visual Studio 2026.
-- Git/Github.
+## Status
+
+Projekt in Entwicklung. Dieses Projekt ist ein Lernprojekt zur Festigung und Vertiefung meiner Fähigkeiten in C# und WPF.
+
+## Aktuelle Funktionen
+
+- Verträge zu einer Liste hinzufügen
+- Verträge aus der Liste entfernen
+- Prüfung auf doppelte Einträge (unabhängig von Groß- und Kleinschreibung)
+- Anzeige der Anzahl der Verträge (mit Einzahl und Mehrzahl)
+
+## Technologien
+
+- C#
+- WPF (XAML)
+- .NET 10
+- Visual Studio 2026
+- Git/GitHub
 
 ## Roadmap
-- [x] Verträge Hinzufügen und entfernen.
-- [x] Doppelte Verträge verhindern.
-- [x] Anzahl der Verträge Anzeigen.
-- [ ] Eigene Klassenstruktur bauen Klasse Vertrag (z.B Anbieter, kosten, Kündigungsfrist).
-- [ ] Monatliche Gesamtkosten berechnen.
-- [ ] Dauerhafte Speicherung (JSON).
-- [ ] Umbau auf MVVM-Architektur.
-- [ ] Eingabe Validierung.
-- [ ] Unit - Test mit xUnit.
-- [ ] Einheitliches Design und Screenshots.
-- [ ] Kündigungsfrist anzeigen.
-- [ ] Fehlerbehandlung beim Laden und Speichern.
+
+- [x] Verträge hinzufügen und entfernen
+- [x] Doppelte Verträge verhindern
+- [x] Anzahl der Verträge anzeigen
+- [ ] Eigene Klasse `Vertrag` (z. B. Anbieter, Kosten, Kündigungsfrist)
+- [ ] Monatliche Gesamtkosten berechnen
+- [ ] Kündigungsfrist anzeigen
+- [ ] Dauerhafte Speicherung (JSON)
+- [ ] Fehlerbehandlung beim Laden und Speichern
+- [ ] Umbau auf MVVM-Architektur
+- [ ] Eingabevalidierung
+- [ ] Unit-Tests mit xUnit
+- [ ] Einheitliches Design und Screenshots
