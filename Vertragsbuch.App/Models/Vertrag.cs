@@ -6,8 +6,8 @@ namespace Vertragsbuch.App.Models
 {
     public class Vertrag
     {
-        public string Name { get; set; }
-        public string Anbieter { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Anbieter { get; set; } = string.Empty;
         public decimal MonatlicheKosten { get; set; }
 
     }
