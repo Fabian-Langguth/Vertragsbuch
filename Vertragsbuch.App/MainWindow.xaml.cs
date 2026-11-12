@@ -17,9 +17,19 @@ namespace Vertragsbuch.App
         private void HinzufuegenButton_Click(object sender, RoutedEventArgs e)
         {
             var vertragsName = VertragsNameTextBox.Text.Trim(); // Entfernt Leerzeichen 
+            var istZahl = decimal.TryParse(KostenTextBox.Text, out decimal vertragsKosten);
+
             if (string.IsNullOrWhiteSpace(vertragsName)) // Prüft ob Eingabe leer ist
             {
                 MessageBox.Show("Das Feld darf nicht leer sein.");
+            }
+            else if (!istZahl) // Prüft ob Kosten eine Zahl sind
+            {
+                MessageBox.Show("Bitte eine Zahl eingeben.");
+            }
+            else if (vertragsKosten < 0) // Prüft ob Kosten negativ sind
+            {
+                MessageBox.Show("Die Zahl darf nicht negativ sein.");
             }
             else if (IstVertragVorhanden(vertragsName)) // Prüft ob Vertrag schon existiert
             {
@@ -27,10 +37,17 @@ namespace Vertragsbuch.App
             }
             else // Fügt Vertrag hinzu
             {
-                Vertrag vertrag = new Vertrag();
-                vertrag.Name = vertragsName;
+                var vertrag = new Vertrag()
+                {
+                    Name = vertragsName,
+                    Anbieter = AnbieterTextBox.Text.Trim(),
+                    MonatlicheKosten = vertragsKosten
+                };
+
                 VertragsListBox.Items.Add(vertrag);
                 VertragsNameTextBox.Clear();
+                AnbieterTextBox.Clear();
+                KostenTextBox.Clear();
                 AnzahlAktualisieren();
             }
             VertragsNameTextBox.Focus();
