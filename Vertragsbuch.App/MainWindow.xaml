@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vertragsbuch.App"
         mc:Ignorable="d"
+        Language="de-DE"
         Title="Vertragsbuch" Height="500" Width="800">
     <Grid>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -15,7 +15,17 @@
         </Grid.RowDefinitions>
         <TextBlock FontSize="20" FontWeight="Heavy" Text="Meine Verträge" Grid.Row="0" Margin="10"/>
         <TextBlock x:Name="AnzahlTextBlock" FontSize="20" Grid.Row="0" HorizontalAlignment="Right" Text="Platzhalter" Margin="10"/>
-        <ListBox x:Name="VertragsListBox" DisplayMemberPath="Name" Grid.Row="1" Margin="10"/>
+        <ListBox x:Name="VertragsListBox" Grid.Row="1" Margin="10">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}" Margin="0,0,15,0"/>
+                        <TextBlock Text="{Binding Anbieter}" Margin="0,0,15,0"/>
+                        <TextBlock Text="{Binding MonatlicheKosten, StringFormat=C}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <Grid Grid.Row="2" Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
