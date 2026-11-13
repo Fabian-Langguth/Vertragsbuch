@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using Vertragsbuch.App.Models;
+using System.Globalization;
 
 namespace Vertragsbuch.App
 {
@@ -17,7 +18,7 @@ namespace Vertragsbuch.App
         private void HinzufuegenButton_Click(object sender, RoutedEventArgs e)
         {
             var vertragsName = VertragsNameTextBox.Text.Trim(); // Entfernt Leerzeichen 
-            var istZahl = decimal.TryParse(KostenTextBox.Text, out decimal vertragsKosten);
+            var istZahl = decimal.TryParse(KostenTextBox.Text, CultureInfo.GetCultureInfo("de-DE"), out decimal vertragsKosten);
 
             if (string.IsNullOrWhiteSpace(vertragsName)) // Prüft ob Eingabe leer ist
             {
