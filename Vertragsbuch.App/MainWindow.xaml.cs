@@ -28,6 +28,10 @@ namespace Vertragsbuch.App
             {
                 MessageBox.Show("Bitte eine Zahl eingeben.");
             }
+            else if (KostenTextBox.Text.Contains("."))
+            {
+                MessageBox.Show("Biitte ein Komma statt eines Punktes verwenden.");
+            }
             else if (vertragsKosten < 0) // Prüft ob Kosten negativ sind
             {
                 MessageBox.Show("Die Zahl darf nicht negativ sein.");
