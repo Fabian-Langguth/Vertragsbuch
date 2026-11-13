@@ -8,9 +8,11 @@ Projekt in Entwicklung. Dieses Projekt ist ein Lernprojekt zur Festigung und Ver
 
 ## Aktuelle Funktionen
 
-- Verträge zu einer Liste hinzufügen
+- Verträge mit Name, Anbieter und monatlichen Kosten zu einer Liste hinzufügen
 - Verträge aus der Liste entfernen
+- Liste zeigt Name, Anbieter und Kosten als Euro-Betrag (z. B. 29,99 €)
 - Prüfung auf doppelte Einträge (unabhängig von Groß- und Kleinschreibung)
+- Hinweise bei falscher Eingabe: leerer Name, keine Zahl, negative Kosten, Punkt statt Komma
 - Anzeige der Anzahl der Verträge (mit Einzahl und Mehrzahl)
 
 ## Technologien
@@ -26,12 +28,15 @@ Projekt in Entwicklung. Dieses Projekt ist ein Lernprojekt zur Festigung und Ver
 - [x] Verträge hinzufügen und entfernen
 - [x] Doppelte Verträge verhindern
 - [x] Anzahl der Verträge anzeigen
-- [ ] Eigene Klasse `Vertrag` (z. B. Anbieter, Kosten, Kündigungsfrist)
+- [x] Eigene Klasse `Vertrag` mit Name, Anbieter und monatlichen Kosten
+- [x] Liste zeigt Name, Anbieter und Kosten (Euro-Format)
+- [x] Einfache Eingabeprüfung im Formular
+- [ ] Vertragsbeginn und Kündigungsfrist erfassen
+- [ ] Kündigungsfrist anzeigen („kündigen bis")
 - [ ] Monatliche Gesamtkosten berechnen
-- [ ] Kündigungsfrist anzeigen
 - [ ] Dauerhafte Speicherung (JSON)
 - [ ] Fehlerbehandlung beim Laden und Speichern
 - [ ] Umbau auf MVVM-Architektur
-- [ ] Eingabevalidierung
+- [ ] Eingabevalidierung direkt am Eingabefeld
 - [ ] Unit-Tests mit xUnit
 - [ ] Einheitliches Design und Screenshots
