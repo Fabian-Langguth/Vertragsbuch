@@ -32,7 +32,7 @@ namespace Vertragsbuch.App
             }
             else if (KostenTextBox.Text.Contains("."))
             {
-                MessageBox.Show("Biitte ein Komma statt eines Punktes verwenden.");
+                MessageBox.Show("Bitte ein Komma statt eines Punktes verwenden.");
             }
             else if (vertragsKosten < 0) // Prüft ob Kosten negativ sind
             {
