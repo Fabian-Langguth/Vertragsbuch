@@ -8,11 +8,11 @@ Projekt in Entwicklung. Dieses Projekt ist ein Lernprojekt zur Festigung und Ver
 
 ## Aktuelle Funktionen
 
-- Verträge mit Name, Anbieter und monatlichen Kosten zu einer Liste hinzufügen
+- Verträge mit Name, Anbieter, monatlichen Kosten und Vertragsbeginn (Auswahl per Kalender) zu einer Liste hinzufügen
 - Verträge aus der Liste entfernen
-- Liste zeigt Name, Anbieter und Kosten als Euro-Betrag (z. B. 29,99 €)
+- Liste zeigt Name, Anbieter, Kosten als Euro-Betrag (z. B. 29,99 €) und Vertragsbeginn (z. B. 01.04.2026)
 - Prüfung auf doppelte Einträge (unabhängig von Groß- und Kleinschreibung)
-- Hinweise bei falscher Eingabe: leerer Name, keine Zahl, negative Kosten, Punkt statt Komma
+- Hinweise bei falscher Eingabe: leerer Name, keine Zahl, negative Kosten, Punkt statt Komma, fehlendes Datum
 - Anzeige der Anzahl der Verträge (mit Einzahl und Mehrzahl)
 
 ## Technologien
@@ -31,8 +31,9 @@ Projekt in Entwicklung. Dieses Projekt ist ein Lernprojekt zur Festigung und Ver
 - [x] Eigene Klasse `Vertrag` mit Name, Anbieter und monatlichen Kosten
 - [x] Liste zeigt Name, Anbieter und Kosten (Euro-Format)
 - [x] Einfache Eingabeprüfung im Formular
-- [ ] Vertragsbeginn und Kündigungsfrist erfassen
-- [ ] Kündigungsfrist anzeigen („kündigen bis")
+- [x] Vertragsbeginn erfassen
+- [ ] Mindestlaufzeit und Kündigungsfrist erfassen
+- [ ] Kündigungsfrist anzeigen („kündigen bis“)
 - [ ] Monatliche Gesamtkosten berechnen
 - [ ] Dauerhafte Speicherung (JSON)
 - [ ] Fehlerbehandlung beim Laden und Speichern
