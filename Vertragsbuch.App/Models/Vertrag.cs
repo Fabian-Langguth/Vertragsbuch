@@ -10,5 +10,6 @@ namespace Vertragsbuch.App.Models
         public string Anbieter { get; set; } = string.Empty;
         public decimal MonatlicheKosten { get; set; }
 
+        public DateTime Vertragsbeginn {  get; init; }
     }
 }

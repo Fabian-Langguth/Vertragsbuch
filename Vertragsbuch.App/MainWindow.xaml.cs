@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using Vertragsbuch.App.Models;
 using System.Globalization;
+using System.Windows.Controls;
 
 namespace Vertragsbuch.App
 {
@@ -19,6 +20,7 @@ namespace Vertragsbuch.App
         {
             var vertragsName = VertragsNameTextBox.Text.Trim(); // Entfernt Leerzeichen 
             var istZahl = decimal.TryParse(KostenTextBox.Text, CultureInfo.GetCultureInfo("de-DE"), out decimal vertragsKosten);
+            DateTime? vertragsbeginn = VertragsbeginnDatePicker.SelectedDate;
 
             if (string.IsNullOrWhiteSpace(vertragsName)) // Prüft ob Eingabe leer ist
             {
@@ -36,6 +38,10 @@ namespace Vertragsbuch.App
             {
                 MessageBox.Show("Die Zahl darf nicht negativ sein.");
             }
+            else if (vertragsbeginn == null)
+            {
+                MessageBox.Show("Bitte ein Datum auswählen.");
+            }
             else if (IstVertragVorhanden(vertragsName)) // Prüft ob Vertrag schon existiert
             {
                 MessageBox.Show("Der Vertrag ist schon vorhanden.");
@@ -46,13 +52,15 @@ namespace Vertragsbuch.App
                 {
                     Name = vertragsName,
                     Anbieter = AnbieterTextBox.Text.Trim(),
-                    MonatlicheKosten = vertragsKosten
+                    MonatlicheKosten = vertragsKosten,
+                    Vertragsbeginn = vertragsbeginn.Value
                 };
 
                 VertragsListBox.Items.Add(vertrag);
                 VertragsNameTextBox.Clear();
                 AnbieterTextBox.Clear();
                 KostenTextBox.Clear();
+                VertragsbeginnDatePicker.SelectedDate = null;
                 AnzahlAktualisieren();
             }
             VertragsNameTextBox.Focus();
