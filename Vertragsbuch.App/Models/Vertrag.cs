@@ -9,7 +9,8 @@ namespace Vertragsbuch.App.Models
         public string Name { get; set; } = string.Empty;
         public string Anbieter { get; set; } = string.Empty;
         public decimal MonatlicheKosten { get; set; }
-
-        public DateTime Vertragsbeginn {  get; init; }
+        public DateTime Vertragsbeginn { get; set; }
+        public int MindestlaufzeitMonate { get; set; }
+        public int KuendigungsfristMonate { get; set; }
     }
 }
