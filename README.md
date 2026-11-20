@@ -32,7 +32,7 @@ Projekt in Entwicklung. Dieses Projekt ist ein Lernprojekt zur Festigung und Ver
 - [x] Liste zeigt Name, Anbieter und Kosten (Euro-Format)
 - [x] Einfache Eingabeprüfung im Formular
 - [x] Vertragsbeginn erfassen
-- [ ] Mindestlaufzeit und Kündigungsfrist erfassen
+- [x] Mindestlaufzeit und Kündigungsfrist erfassen
 - [ ] Kündigungsfrist anzeigen („kündigen bis“)
 - [ ] Monatliche Gesamtkosten berechnen
 - [ ] Dauerhafte Speicherung (JSON)

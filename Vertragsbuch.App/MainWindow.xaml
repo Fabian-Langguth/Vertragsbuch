@@ -28,7 +28,9 @@
                         <TextBlock Text="{Binding Name}" Margin="0,0,15,0"/>
                         <TextBlock Text="{Binding Anbieter}" Margin="0,0,15,0"/>
                         <TextBlock Text="{Binding MonatlicheKosten, StringFormat=C}" Margin="0,0,15,0"/>
-                        <TextBlock Text="{Binding Vertragsbeginn, StringFormat=d}"/>
+                        <TextBlock Text="{Binding Vertragsbeginn, StringFormat=d}" Margin="0,0,15,0"/>
+                        <TextBlock Text="{Binding MindestlaufzeitMonate, StringFormat='Laufzeit: {0} Monate'}" Margin="0,0,15,0"/>
+                        <TextBlock Text="{Binding KuendigungsfristMonate, StringFormat='Frist: {0} Monate'}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
