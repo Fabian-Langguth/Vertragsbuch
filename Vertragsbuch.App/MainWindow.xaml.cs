@@ -1,7 +1,6 @@
-﻿using System.Windows;
+﻿using System.Globalization;
+using System.Windows;
 using Vertragsbuch.App.Models;
-using System.Globalization;
-using System.Windows.Controls;
 
 namespace Vertragsbuch.App
 {
@@ -18,8 +17,10 @@ namespace Vertragsbuch.App
 
         private void HinzufuegenButton_Click(object sender, RoutedEventArgs e)
         {
-            var vertragsName = VertragsNameTextBox.Text.Trim(); // Entfernt Leerzeichen 
+            var vertragsName = VertragsNameTextBox.Text.Trim(); // Entfernt Leerzeichen
             var istZahl = decimal.TryParse(KostenTextBox.Text, CultureInfo.GetCultureInfo("de-DE"), out decimal vertragsKosten);
+            var istMindestlaufzeitZahl = int.TryParse(MindestlaufzeitTextBox.Text, out int mindestlaufzeitMonate);
+            var istKuendigungsfristZahl = int.TryParse(KuendigungsfristTextBox.Text, out int kuendigungsfristMonate); // GEÄNDERT: Name mit "s"
             DateTime? vertragsbeginn = VertragsbeginnDatePicker.SelectedDate;
 
             if (string.IsNullOrWhiteSpace(vertragsName)) // Prüft ob Eingabe leer ist
@@ -42,6 +43,22 @@ namespace Vertragsbuch.App
             {
                 MessageBox.Show("Bitte ein Datum auswählen.");
             }
+            else if (!istMindestlaufzeitZahl)
+            {
+                MessageBox.Show("Bitte bei der Mindestlaufzeit eine ganze Zahl eingeben.");
+            }
+            else if (mindestlaufzeitMonate < 0)
+            {
+                MessageBox.Show("Die Mindestlaufzeit darf nicht negativ sein.");
+            }
+            else if (!istKuendigungsfristZahl) // GEÄNDERT: prüft jetzt die Kündigungsfrist
+            {
+                MessageBox.Show("Bitte bei der Kündigungsfrist eine ganze Zahl eingeben.");
+            }
+            else if (kuendigungsfristMonate < 0)
+            {
+                MessageBox.Show("Die Kündigungsfrist darf nicht negativ sein.");
+            }
             else if (IstVertragVorhanden(vertragsName)) // Prüft ob Vertrag schon existiert
             {
                 MessageBox.Show("Der Vertrag ist schon vorhanden.");
@@ -53,7 +70,9 @@ namespace Vertragsbuch.App
                     Name = vertragsName,
                     Anbieter = AnbieterTextBox.Text.Trim(),
                     MonatlicheKosten = vertragsKosten,
-                    Vertragsbeginn = vertragsbeginn.Value
+                    Vertragsbeginn = vertragsbeginn.Value,
+                    MindestlaufzeitMonate = mindestlaufzeitMonate,
+                    KuendigungsfristMonate = kuendigungsfristMonate
                 };
 
                 VertragsListBox.Items.Add(vertrag);
@@ -61,6 +80,8 @@ namespace Vertragsbuch.App
                 AnbieterTextBox.Clear();
                 KostenTextBox.Clear();
                 VertragsbeginnDatePicker.SelectedDate = null;
+                MindestlaufzeitTextBox.Clear();
+                KuendigungsfristTextBox.Clear();
                 AnzahlAktualisieren();
             }
             VertragsNameTextBox.Focus();
