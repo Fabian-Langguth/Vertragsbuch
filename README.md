@@ -33,7 +33,7 @@ Projekt in Entwicklung. Dieses Projekt ist ein Lernprojekt zur Festigung und Ver
 - [x] Einfache Eingabeprüfung im Formular
 - [x] Vertragsbeginn erfassen
 - [x] Mindestlaufzeit und Kündigungsfrist erfassen
-- [ ] Kündigungsfrist anzeigen („kündigen bis“)
+- [x] Kündigungsfrist anzeigen („kündigen bis“)
 - [ ] Monatliche Gesamtkosten berechnen
 - [ ] Dauerhafte Speicherung (JSON)
 - [ ] Fehlerbehandlung beim Laden und Speichern
