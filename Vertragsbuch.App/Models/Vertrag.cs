@@ -12,5 +12,21 @@ namespace Vertragsbuch.App.Models
         public DateTime Vertragsbeginn { get; set; }
         public int MindestlaufzeitMonate { get; set; }
         public int KuendigungsfristMonate { get; set; }
+
+        public DateTime Vertragsende
+        {
+            get
+            {
+                return Vertragsbeginn.AddMonths(MindestlaufzeitMonate);
+            }
+        }
+
+        public DateTime KuendigenBis
+        {
+            get
+            {
+                return Vertragsende.AddMonths(-KuendigungsfristMonate);
+            }
+        }
     }
 }
