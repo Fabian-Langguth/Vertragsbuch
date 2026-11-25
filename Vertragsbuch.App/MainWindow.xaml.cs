@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.ComponentModel;
+using System.Globalization;
 using System.Windows;
 using Vertragsbuch.App.Models;
 
@@ -13,6 +14,9 @@ namespace Vertragsbuch.App
         {
             InitializeComponent();
             AnzahlAktualisieren();
+            GesamtkostenAktualisieren();
+           
+           
         }
 
         private void HinzufuegenButton_Click(object sender, RoutedEventArgs e)
@@ -83,6 +87,8 @@ namespace Vertragsbuch.App
                 MindestlaufzeitTextBox.Clear();
                 KuendigungsfristTextBox.Clear();
                 AnzahlAktualisieren();
+                GesamtkostenAktualisieren();
+             
             }
             VertragsNameTextBox.Focus();
         }
@@ -113,6 +119,7 @@ namespace Vertragsbuch.App
                 {
                     VertragsListBox.Items.Remove(ausgewaehlterVertrag); // löscht den ausgewählten Vertrag aus der Box
                     AnzahlAktualisieren();
+                    GesamtkostenAktualisieren();
                 }
             }
             else
@@ -128,6 +135,13 @@ namespace Vertragsbuch.App
             AnzahlTextBlock.Text = text;
         }
 
+        private void GesamtkostenAktualisieren() // Zeigt aktuelle Gesamtkosten im Fenster an
+        {
+            decimal gesamtkosten = GesamtkostenBerechnen(); // Summe holen
+            string kostenText = gesamtkosten.ToString("C", CultureInfo.GetCultureInfo("de-DE")); // Währungsfromat Deutsch
+            GesamtkostenTextBlock.Text = $"{kostenText} pro Monat"; // Text ins Fenster schreiben
+        }
+
         private string AnzahlTextErstellen(int anzahl)
         {
             if (anzahl == 1)
@@ -138,6 +152,14 @@ namespace Vertragsbuch.App
             {
                 return $"{anzahl} Verträge";
             }
+        }
+
+        private decimal GesamtkostenBerechnen() // Berechnet die Summe der monatlichen Kosten aller Verträge
+        {
+            decimal gesamtkosten = VertragsListBox.Items // alle Einträge der ListBox
+                .Cast<Vertrag>() // jeden Eintrag als Vertrag behandeln
+                .Sum(vertrag => vertrag.MonatlicheKosten); // Monatskosten addieren
+            return gesamtkosten;
         }
     }
 }
