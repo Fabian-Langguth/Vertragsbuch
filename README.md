@@ -34,6 +34,7 @@ Projekt in Entwicklung. Dieses Projekt ist ein Lernprojekt zur Festigung und Ver
 - [x] Vertragsbeginn erfassen
 - [x] Mindestlaufzeit und Kündigungsfrist erfassen
 - [x] Kündigungsfrist anzeigen („kündigen bis“)
+- [x] Gesamtkosten pro Monat anzeigen (LINQ) 
 - [ ] Monatliche Gesamtkosten berechnen
 - [ ] Dauerhafte Speicherung (JSON)
 - [ ] Fehlerbehandlung beim Laden und Speichern

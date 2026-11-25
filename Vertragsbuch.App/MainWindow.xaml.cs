@@ -15,8 +15,8 @@ namespace Vertragsbuch.App
             InitializeComponent();
             AnzahlAktualisieren();
             GesamtkostenAktualisieren();
-           
-           
+
+
         }
 
         private void HinzufuegenButton_Click(object sender, RoutedEventArgs e)
@@ -88,7 +88,7 @@ namespace Vertragsbuch.App
                 KuendigungsfristTextBox.Clear();
                 AnzahlAktualisieren();
                 GesamtkostenAktualisieren();
-             
+
             }
             VertragsNameTextBox.Focus();
         }
