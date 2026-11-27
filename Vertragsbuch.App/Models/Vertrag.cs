@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Vertragsbuch.App.Models
 {
@@ -13,6 +14,7 @@ namespace Vertragsbuch.App.Models
         public int MindestlaufzeitMonate { get; set; }
         public int KuendigungsfristMonate { get; set; }
 
+        [JsonIgnore]
         public DateTime Vertragsende
         {
             get
@@ -21,6 +23,7 @@ namespace Vertragsbuch.App.Models
             }
         }
 
+        [JsonIgnore]
         public DateTime KuendigenBis
         {
             get

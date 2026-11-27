@@ -4,6 +4,7 @@ using System.Windows;
 using Vertragsbuch.App.Models;
 using System.Text.Json;
 using System.IO;
+using System.Text.Json.Serialization;
 
 namespace Vertragsbuch.App
 {
@@ -13,13 +14,12 @@ namespace Vertragsbuch.App
     public partial class MainWindow : Window
     {
         private const string Dateiname = "vertraege.json";
+
         public MainWindow()
         {
             InitializeComponent();
             AnzahlAktualisieren();
             GesamtkostenAktualisieren();
-
-
         }
 
         private void HinzufuegenButton_Click(object sender, RoutedEventArgs e)
@@ -124,6 +124,7 @@ namespace Vertragsbuch.App
                     VertragsListBox.Items.Remove(ausgewaehlterVertrag); // löscht den ausgewählten Vertrag aus der Box
                     AnzahlAktualisieren();
                     GesamtkostenAktualisieren();
+                    VertraegeSpeichern();
                 }
             }
             else
