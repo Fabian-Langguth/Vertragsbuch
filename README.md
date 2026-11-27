@@ -8,13 +8,15 @@ Projekt in Entwicklung. Dieses Projekt ist ein Lernprojekt zur Festigung und Ver
 
 ## Aktuelle Funktionen
 
-- Verträge mit Name, Anbieter, monatlichen Kosten und Vertragsbeginn (Auswahl per Kalender) zu einer Liste hinzufügen
-- Verträge aus der Liste entfernen
-- Liste zeigt Name, Anbieter, Kosten als Euro-Betrag (z. B. 29,99 €) und Vertragsbeginn (z. B. 01.04.2026)
+- Verträge mit Name, Anbieter, monatlichen Kosten, Vertragsbeginn (Auswahl per Kalender), Mindestlaufzeit und Kündigungsfrist zu einer Liste hinzufügen
+- Verträge aus der Liste entfernen (mit Sicherheitsabfrage)
+- Liste zeigt alle Angaben, Kosten als Euro-Betrag (z. B. 29,99 €) und das berechnete Datum „Kündigen bis“
+- Anzeige der Anzahl der Verträge (mit Einzahl und Mehrzahl) und der Gesamtkosten pro Monat
 - Prüfung auf doppelte Einträge (unabhängig von Groß- und Kleinschreibung)
-- Hinweise bei falscher Eingabe: leerer Name, keine Zahl, negative Kosten, Punkt statt Komma, fehlendes Datum
-- Anzeige der Anzahl der Verträge (mit Einzahl und Mehrzahl)
-
+- Hinweise bei falscher Eingabe: leerer Name, keine Zahl, negative Werte, Punkt statt Komma, fehlendes Datum
+- Automatisches Speichern aller Verträge als JSON-Datei nach jeder Änderung
+- Verständliche Fehlermeldung, falls das Speichern fehlschlägt
+- 
 ## Technologien
 
 - C#
@@ -34,10 +36,9 @@ Projekt in Entwicklung. Dieses Projekt ist ein Lernprojekt zur Festigung und Ver
 - [x] Vertragsbeginn erfassen
 - [x] Mindestlaufzeit und Kündigungsfrist erfassen
 - [x] Kündigungsfrist anzeigen („kündigen bis“)
-- [x] Gesamtkosten pro Monat anzeigen (LINQ) 
-- [ ] Monatliche Gesamtkosten berechnen
-- [ ] Dauerhafte Speicherung (JSON)
-- [ ] Fehlerbehandlung beim Laden und Speichern
+- [x] Gesamtkosten pro Monat anzeigen (LINQ)
+- [x] Verträge als JSON-Datei speichern (mit Fehlerbehandlung)
+- [ ] Verträge beim Start laden (mit Fehlerbehandlung)
 - [ ] Umbau auf MVVM-Architektur
 - [ ] Eingabevalidierung direkt am Eingabefeld
 - [ ] Unit-Tests mit xUnit
