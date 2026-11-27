@@ -4,7 +4,7 @@ using System.Windows;
 using Vertragsbuch.App.Models;
 using System.Text.Json;
 using System.IO;
-using System.Text.Json.Serialization;
+
 
 namespace Vertragsbuch.App
 {
@@ -168,14 +168,22 @@ namespace Vertragsbuch.App
         }
         private void VertraegeSpeichern() // Speichert alle Verträge aus der Listbox als Json
         {
-            List<Vertrag> vertraege = VertragsListBox.Items // alle Einträge der Listbox
-                .Cast<Vertrag>() // alles als Vertrag behandeln
-                .ToList(); // alles in eine Liste packen 
+            try
+            {
+                List<Vertrag> vertraege = VertragsListBox.Items // alle Einträge der Listbox
+                    .Cast<Vertrag>() // alles als Vertrag behandeln
+                    .ToList(); // alles in eine Liste packen 
 
-            var optionen = new JsonSerializerOptions { WriteIndented = true }; // Zeilenumbrüche in Json
-            string json = JsonSerializer.Serialize(vertraege, optionen); // Liste in Json Text umwandeln 
-            File.WriteAllText(Dateiname, json);  // Text in die Datei schreiben 
+                var optionen = new JsonSerializerOptions { WriteIndented = true }; // Zeilenumbrüche in Json
+                string json = JsonSerializer.Serialize(vertraege, optionen); // Liste in Json Text umwandeln 
+                File.WriteAllText(Dateiname, json);  // Text in die Datei schreiben 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Die Verträge konnten nicht gespeichert werden: {ex.Message}", // Fehlertext von Windows
+                "Fehler beim Speichern",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
-
     }
 }
