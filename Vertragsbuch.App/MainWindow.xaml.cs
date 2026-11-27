@@ -2,6 +2,8 @@
 using System.Globalization;
 using System.Windows;
 using Vertragsbuch.App.Models;
+using System.Text.Json;
+using System.IO;
 
 namespace Vertragsbuch.App
 {
@@ -10,6 +12,7 @@ namespace Vertragsbuch.App
     /// </summary>
     public partial class MainWindow : Window
     {
+        private const string Dateiname = "vertraege.json";
         public MainWindow()
         {
             InitializeComponent();
@@ -88,6 +91,7 @@ namespace Vertragsbuch.App
                 KuendigungsfristTextBox.Clear();
                 AnzahlAktualisieren();
                 GesamtkostenAktualisieren();
+                VertraegeSpeichern();
 
             }
             VertragsNameTextBox.Focus();
@@ -161,5 +165,16 @@ namespace Vertragsbuch.App
                 .Sum(vertrag => vertrag.MonatlicheKosten); // Monatskosten addieren
             return gesamtkosten;
         }
+        private void VertraegeSpeichern() // Speichert alle Verträge aus der Listbox als Json
+        {
+            List<Vertrag> vertraege = VertragsListBox.Items // alle Einträge der Listbox
+                .Cast<Vertrag>() // alles als Vertrag behandeln
+                .ToList(); // alles in eine Liste packen 
+
+            var optionen = new JsonSerializerOptions { WriteIndented = true }; // Zeilenumbrüche in Json
+            string json = JsonSerializer.Serialize(vertraege, optionen); // Liste in Json Text umwandeln 
+            File.WriteAllText(Dateiname, json);  // Text in die Datei schreiben 
+        }
+
     }
 }
